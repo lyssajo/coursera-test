@@ -10,69 +10,75 @@ section {
   margin-bottom: 20px;
   color: #fff;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
 h1 {
   text-align: center;
+  font-size: 1.75em;
+  padding: 10px;
+}
+
+section {
+  position: relative;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid black;
+  background-color: grey;
 }
 
 h2 {
-  margin-top: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  font-size: 1.25em;
 }
 
-/* Desktop view (992px and above) */
+section:nth-child(2) h2 {
+  background-color: yellow;
+}
+
+section:nth-child(3) h2 {
+  background-color: green;
+}
+
+section:nth-child(4) h2 {
+  background-color: blue;
+}
+
+p {
+  margin-top: 50px;
+  font-size: 1em;
+}
+
+/* Desktop view */
 @media (min-width: 992px) {
   section {
+    width: calc(33.33% - 20px);
     float: left;
-    width: 33.33%;
-    background-color: #ff0000;
-  }
-  
-  section:nth-child(3) {
-    clear: both;
   }
 }
 
-/* Tablet view (768px to 991px) */
+/* Tablet view */
 @media (min-width: 768px) and (max-width: 991px) {
   section {
-    width: 50%;
-    background-color: #00ff00;
+    width: calc(50% - 20px);
+    float: left;
   }
-  
-  section:nth-child(3) {
-    width: 100%;
+
+  section:last-child {
+    width: calc(100% - 20px);
     clear: both;
   }
 }
 
-/* Mobile view (767px and below) */
+/* Mobile view */
 @media (max-width: 767px) {
   section {
-    width: 100%;
-    background-color: #0000ff;
+    width: calc(100% - 20px);
   }
-}
-
-/* Position section title region at top right corner */
-section::before {
-  content: attr(data-title);
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* Adjust font size for heading and section title */
-h1 {
-  font-size: 24px;
-}
-
-h2 {
-  font-size: 18px;
-}
-
-/* Optional: Set font-family */
-body {
-  font-family: Arial, sans-serif;
 }
